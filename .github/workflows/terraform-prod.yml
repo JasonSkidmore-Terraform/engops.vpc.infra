@@ -10,7 +10,7 @@ on:
 
 jobs:
   terraform:
-    name: "Deploy-Development-Environment"
+    name: "Deploy-Production-Environment"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,7 +39,7 @@ jobs:
         run: |
           export TF_WORKSPACE="project-engops-vpc-prod"
           cp variables/prod.auto.tfvars ./
-          terraform plan -no-color
+          terraform plan -input=false -no-color
         continue-on-error: true
 
       - uses: actions/github-script@0.9.0
@@ -68,8 +68,8 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/prod' && github.event_name == 'push'
         run: |
           export TF_WORKSPACE="project-engops-vpc-prod"
           cp variables/prod.auto.tfvars ./
-          terraform apply
+          terraform apply -auto-approve

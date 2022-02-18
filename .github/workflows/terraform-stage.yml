@@ -3,10 +3,10 @@ name: "Terraform-Develop"
 on:
   pull_request:
     branches:
-      - develop
+      - stage
   push:
     branches:
-      - develop
+      - stage
 
 jobs:
   terraform:
@@ -29,7 +29,7 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          export TF_WORKSPACE="project-engops-vpc-dev"
+          export TF_WORKSPACE="project-engops-vpc-stage"
           terraform init
           terraform workspace show
 
@@ -37,8 +37,8 @@ jobs:
         id: plan
         if: github.event_name == 'pull_request'
         run: |
-          export TF_WORKSPACE="project-engops-vpc-dev"
-          cp variables/dev.auto.tfvars ./
+          export TF_WORKSPACE="project-engops-vpc-stage"
+          cp variables/stage.auto.tfvars ./
           terraform plan -no-color
         continue-on-error: true
 
@@ -70,6 +70,6 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
         run: |
-          export TF_WORKSPACE="project-engops-vpc-dev"
-          cp variables/dev.auto.tfvars ./
+          export TF_WORKSPACE="project-engops-vpc-stage"
+          cp variables/stage.auto.tfvars ./
           terraform apply 

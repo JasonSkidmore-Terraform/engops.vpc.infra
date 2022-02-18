@@ -21,8 +21,8 @@ locals {
   environment = var.environment
   project     = var.project
 
-  vpc_cidr     = var.vpc_cidr
-  vpc_name     = join("-", [var.tenant, var.environment, var.project, "vpc"])
+  vpc_cidr = var.vpc_cidr
+  vpc_name = join("-", [var.tenant, var.environment, var.project, "vpc"])
 
 }
 

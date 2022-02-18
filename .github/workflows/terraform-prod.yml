@@ -1,4 +1,4 @@
-name: "Terraform-Develop"
+name: "Terraform-Prod"
 
 on:
   pull_request:
@@ -72,4 +72,4 @@ jobs:
         run: |
           export TF_WORKSPACE="project-engops-vpc-prod"
           cp variables/prod.auto.tfvars ./
-          terraform apply 
+          terraform apply

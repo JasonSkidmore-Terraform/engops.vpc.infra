@@ -14,7 +14,7 @@ env:
 
 jobs:
   terraform:
-    uses: JasonSkidmore-Terraform/ci-cd/.github/workflows/terraform/terraform.yaml
+    uses: JasonSkidmore-Terraform/ci-cd/.github/workflows/terraform.yaml
     with:
       TERRAFORM_PROJECT: $TERRAFORM_PROJECT
       ENV: $ENV

@@ -9,8 +9,8 @@ on:
       - develop
 
 jobs:
-  terraform:  
-    uses: JasonSkidmore-Terraform/ci-cd/.github/workflows/terraform.yaml@main
+  terraform:
+    uses: jasonskidmore/ci-cd/.github/workflows/terraform.yaml@main
     with:
       TERRAFORM_PROJECT: project-engops-vpc
       ENV: dev

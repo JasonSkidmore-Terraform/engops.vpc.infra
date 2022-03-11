@@ -9,7 +9,7 @@ on:
       - develop
 
 jobs:
-  terraform:  
+  terraform:
     uses: JasonSkidmore-Terraform/ci-cd/.github/workflows/terraform.yaml@main
     with:
       TERRAFORM_PROJECT: project-engops-vpc

@@ -21,6 +21,7 @@ jobs:
       BRANCH: $BRANCH
     secrets:
       TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # - name: Set the TERRAFORM_PROJECT
     #     id: terraform_project

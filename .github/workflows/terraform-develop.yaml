@@ -16,9 +16,8 @@ jobs:
   terraform:
     uses: JasonSkidmore-Terraform/ci-cd/.github/workflows/terraform.yaml@main
     with:
-      TERRAFORM_PROJECT: $TERRAFORM_PROJECT
-      ENV: $ENV
-      BRANCH: $BRANCH
+      TERRAFORM_PROJECT: ${{ env.TERRAFORM_PROJECT }}
+      ENV: ${{ env.ENV }}
+      BRANCH: ${{ env.BRANCH }}
     secrets:
       TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
-      

@@ -10,7 +10,7 @@ on:
 
 jobs:
   terraform:
-    uses: JasonSkidmore-Terraform/ci-cd/.github/workflows/terraform.yaml@main
+    uses: jasonskidmore-terraform/ci-cd/.github/workflows/terraform.yml@main
     with:
       TERRAFORM_PROJECT: project-engops-vpc
       ENV: dev

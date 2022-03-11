@@ -7,13 +7,14 @@ on:
   push:
     branches:
       - develop
-env:
-  TERRAFORM_PROJECT: project-engops-vpc
-  ENV: dev
-  BRANCH: develop
 
 jobs:
   terraform:
+    env:
+      TERRAFORM_PROJECT: project-engops-vpc
+      ENV: dev
+      BRANCH: develop
+      
     uses: JasonSkidmore-Terraform/ci-cd/.github/workflows/terraform.yaml@main
     with:
       TERRAFORM_PROJECT: ${{ env.TERRAFORM_PROJECT }}

@@ -1,0 +1,15 @@
+name: "Terraform-Develop-Plan"
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  terraform:
+    uses: jasonskidmore/terraform.ci-cd/.github/workflows/terraform-plan.yaml@main
+    with:
+      TERRAFORM_PROJECT: project-engops-vpc
+      ENV: dev
+    secrets:
+      TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}

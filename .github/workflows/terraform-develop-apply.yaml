@@ -1,16 +1,13 @@
-name: "Terraform-Develop"
+name: "Terraform-Develop-Apply"
 
 on:
-  pull_request:
-    branches:
-      - develop
   push:
     branches:
       - develop
 
 jobs:
   terraform:
-    uses: jasonskidmore/terraform.ci-cd/.github/workflows/terraform.yaml@main
+    uses: jasonskidmore/terraform.ci-cd/.github/workflows/terraform-apply.yaml@main
     with:
       TERRAFORM_PROJECT: project-engops-vpc
       ENV: dev

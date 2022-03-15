@@ -1,4 +1,4 @@
-name: "Terraform Plan Dev"
+name: "Terraform-Dev-Plan"
 on:
   pull_request:
     branches:
@@ -10,7 +10,6 @@ jobs:
     with:
       terraform_project: project-engops-vpc ## terraform workspace tag/pre-fix
       env: dev
-      # branch: develop                     ## TODO may not need this for TF plan
       tf_version: latest                    ## Terraform version e.g: 1.1.0 Default=latest (Optional)
       tf_vars_file: dev.auto.tfvars         ## Terraform TFVARS (Required)
       enable_TFSEC: true                    ## (Optional)  Enable TFSEC IaC scans (Private repo requires GitHub enterprise)

@@ -1,4 +1,4 @@
-name: "Terraform-Develop-Apply"
+name: "Terraform-Dev-Apply"
 
 on:
   push:
@@ -6,11 +6,14 @@ on:
       - develop
 
 jobs:
-  terraform:
-    uses: jasonskidmore/terraform.ci-cd/.github/workflows/terraform-apply.yaml@main
+  Plan_Dev:
+    uses: jasonskidmore/terraform.ci-cd/.github/workflows/terraform.new.plan.yaml@main
     with:
-      TERRAFORM_PROJECT: project-engops-vpc
-      ENV: dev
-      BRANCH: develop
+      terraform_project: project-engops-vpc ## terraform workspace tag/pre-fix
+      env: dev
+      branch: develop
+      tf_version: latest                    ## Terraform version e.g: 1.1.0 Default=latest (Optional)
+      tf_vars_file: dev.auto.tfvars         ## Terraform TFVARS (Required)
+      enable_TFSEC: true                    ## (Optional)  Enable TFSEC IaC scans (Private repo requires GitHub enterprise)
     secrets:
       TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}

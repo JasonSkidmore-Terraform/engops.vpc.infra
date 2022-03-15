@@ -7,7 +7,7 @@ on:
 
 jobs:
   Plan_Dev:
-    uses: jasonskidmore/terraform.ci-cd/.github/workflows/terraform.new.plan.yaml@main
+    uses: jasonskidmore/terraform.ci-cd/.github/workflows/terraform-apply.yaml@main
     with:
       terraform_project: project-engops-vpc ## terraform workspace tag/pre-fix
       env: dev

@@ -1,4 +1,4 @@
-name: "Terraform-Dev-Plan"
+name: "terraform-plan-dev"
 on:
   pull_request:
     branches:
